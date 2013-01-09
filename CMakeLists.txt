@@ -60,3 +60,5 @@ endforeach()
 configure_file(tinyxml2.pc.in tinyxml2.pc @ONLY)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/tinyxml2.pc DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
 
+set(LIBRARY_OUTPUT_PATH lib/${CMAKE_BUILD_TYPE})
+
