@@ -20,6 +20,9 @@ set(GENERIC_LIB_SOVERSION "1")
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/.")
 
 
+
+set(LIBRARY_OUTPUT_PATH lib/${CMAKE_BUILD_TYPE})
+
 ################################
 # Add definitions
 
@@ -48,7 +51,7 @@ else(BUILD_STATIC_LIBS)
 	install(TARGETS MoGS_tinyxml
 		LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
 endif(BUILD_STATIC_LIBS)
-install(FILES tinyxml2.h additionnal_tinyxml.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+install(FILES tinyxml2.h additionnal_tinyxml.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/MoGS/MoGS_tinyxml)
 
 foreach(p LIB INCLUDE)
 	set(var CMAKE_INSTALL_${p}DIR)
@@ -57,6 +60,6 @@ foreach(p LIB INCLUDE)
 	endif()
 endforeach()
 
-configure_file(tinyxml2.pc.in tinyxml2.pc @ONLY)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/tinyxml2.pc DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
+configure_file(MoGS_tinyxml.pc.in MoGS_tinyxml.pc @ONLY)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/MoGS_tinyxml.pc DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
 
