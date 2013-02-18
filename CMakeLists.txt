@@ -14,7 +14,7 @@ endforeach()
 if(MoGS_GLOBAL_COMPILED)
   set(MoGS_Tinyxml_MODULE_COMPILED "TRUE" CACHE INTERNAL "")
   set(MoGS_Tinyxml_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/include" CACHE INTERNAL "" )
-  set(MoGS_Tinyxml_LIBRARY_DIRS "${CMAKE_BINARY_DIR}/${PROJECT_NAME}/lib" CACHE INTERNAL "" )
+  set(MoGS_Tinyxml_LIBRARY_DIRS "${CMAKE_BINARY_DIR}/${PROJECT_NAME}/lib/${CMAKE_BUILD_TYPE}" CACHE INTERNAL "" )
   set(MoGS_Tinyxml_LIBRARIES  -lMoGS_Tinyxml CACHE INTERNAL "")
   set(MoGS_Tinyxml_GLOBAL_COMPILED "TRUE" CACHE INTERNAL "")
 else (MoGS_GLOBAL_COMPILED)
@@ -36,7 +36,7 @@ file(
 
 file(
 	GLOB_RECURSE
-	header_files_MoGS_Tinyxlm
+	header_files_MoGS_Tinyxml
 	include/*.h
 )
 
