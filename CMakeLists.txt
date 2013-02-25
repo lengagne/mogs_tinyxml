@@ -50,6 +50,6 @@ configure_file(MoGS_Tinyxml.pc.in MoGS_Tinyxml.pc @ONLY)
 # install the pkgconfig files
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/MoGS_Tinyxml.pc DESTINATION ${CMAKE_INSTALL_LIBDIR}/lib/pkgconfig)
 # install the include files
-install(FILES ${header_files_MoGS_Tinyxlm} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/include/MoGS/MoGS_Tinyxml)
+install(FILES ${header_files_MoGS_Tinyxml} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/include/MoGS/MoGS_Tinyxml)
 # install the library files
 install( TARGETS "MoGS_Tinyxml" LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/lib  COMPONENT main)
