@@ -46,11 +46,4 @@ int32_t  string_to_int32 ( const std::string& s ) ;
 int16_t  string_to_int16 ( const std::string& s ) ;
 int8_t   string_to_int8  ( const std::string& s ) ;
 
-// std::string get_string ( TiXmlHandle RNhandle, std::string name, std::string error_message);
-// 
-// bool get_bool ( TiXmlHandle RNhandle, std::string name, std::string error_message);
-// 
-// int get_int ( TiXmlHandle RNhandle, std::string name, std::string error_message);
-// 
-// 		
 #endif
