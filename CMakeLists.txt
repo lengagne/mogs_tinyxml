@@ -3,6 +3,15 @@ cmake_policy(VERSION 2.6)
 
 project(MoGS_Tinyxml)
 
+set( CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} /lib /usr/lib /usr/local/lib )
+set( CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} /usr/include /usr/local/include )
+set( CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake" )
+
+set ( INSTALL_BIN_PATH bin )
+set ( INSTALL_LIB_PATH lib )
+set ( INSTALL_AR_PATH lib )
+set ( INSTALL_HEADERS_PATH include )
+
 foreach(p LIB INCLUDE)
 	set(var CMAKE_INSTALL_${p}DIR)
 	if(NOT IS_ABSOLUTE "${${var}}")
@@ -28,28 +37,31 @@ set(LIBRARY_OUTPUT_PATH lib/${CMAKE_BUILD_TYPE})
 
 include_directories(	./include )
 
-file(
-	GLOB_RECURSE
+file(	GLOB_RECURSE
 	source_files_MoGS_Tinyxml
 	src/*
 )
 
-file(
-	GLOB_RECURSE
+file(	GLOB_RECURSE
 	header_files_MoGS_Tinyxml
 	include/*.h
 )
 
-
 add_library(MoGS_Tinyxml SHARED
 	    ${source_files_MoGS_Tinyxml})
 
-# generate the pks_config file
-configure_file(MoGS_Tinyxml.pc.in MoGS_Tinyxml.pc @ONLY)
-
-# install the pkgconfig files
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/MoGS_Tinyxml.pc DESTINATION ${CMAKE_INSTALL_LIBDIR}/lib/pkgconfig)
 # install the include files
-install(FILES ${header_files_MoGS_Tinyxml} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/include/MoGS/MoGS_Tinyxml)
+set(INSTALL_INCLUDE_DIRS ${CMAKE_INSTALL_INCLUDEDIR}/include/MoGS/MoGS_Tinyxml)
+
+install(FILES ${header_files_MoGS_Tinyxml} DESTINATION ${INSTALL_INCLUDE_DIRS})
 # install the library files
 install( TARGETS "MoGS_Tinyxml" LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/lib  COMPONENT main)
+
+### Configure file
+
+configure_file(MoGS_TinyxmlConfig.cmake.in "${PROJECT_BINARY_DIR}/MoGS_TinyxmlConfig.cmake" @ONLY)
+
+set ( INSTALL_LIB_PATH lib )
+
+install ( FILES "${PROJECT_BINARY_DIR}/MoGS_TinyxmlConfig.cmake"
+      DESTINATION "${INSTALL_LIB_PATH}/MoGS_Tinyxml" COMPONENT dev ) 
