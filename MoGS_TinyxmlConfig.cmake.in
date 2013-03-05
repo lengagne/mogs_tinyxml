@@ -9,6 +9,6 @@
 
 set(MoGS_Tinyxml_INCLUDE_DIRS  @INSTALL_INCLUDE_DIRS@)
 
-set(MoGS_Tinyxml_LIBRARY_DIR "@INSTALL_LIB_PATH@")
+set(MoGS_Tinyxml_LIBRARY_DIR @INSTALL_LIB_DIRS@)
 
 set(MoGS_Tinyxml_LIBRARIES MoGS_Tinyxml)

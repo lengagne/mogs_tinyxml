@@ -52,16 +52,16 @@ add_library(MoGS_Tinyxml SHARED
 
 # install the include files
 set(INSTALL_INCLUDE_DIRS ${CMAKE_INSTALL_INCLUDEDIR}/include/MoGS/MoGS_Tinyxml)
+set(INSTALL_LIB_DIRS ${CMAKE_INSTALL_LIBDIR}/lib )
 
 install(FILES ${header_files_MoGS_Tinyxml} DESTINATION ${INSTALL_INCLUDE_DIRS})
 # install the library files
-install( TARGETS "MoGS_Tinyxml" LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/lib  COMPONENT main)
+install( TARGETS "MoGS_Tinyxml" LIBRARY DESTINATION ${INSTALL_LIB_DIRS}  COMPONENT main)
 
 ### Configure file
-
 configure_file(MoGS_TinyxmlConfig.cmake.in "${PROJECT_BINARY_DIR}/MoGS_TinyxmlConfig.cmake" @ONLY)
 
-set ( INSTALL_LIB_PATH lib )
+
 
 install ( FILES "${PROJECT_BINARY_DIR}/MoGS_TinyxmlConfig.cmake"
       DESTINATION "${INSTALL_LIB_PATH}/MoGS_Tinyxml" COMPONENT dev ) 
