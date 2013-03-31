@@ -21,11 +21,11 @@ endforeach()
 
 # if the compilation is done for whole the project
 if(MoGS_GLOBAL_COMPILED)
-  set(MoGS_Tinyxml_MODULE_COMPILED "TRUE" CACHE INTERNAL "")
+  set(MoGS_Tinyxml_FOUND "TRUE" CACHE INTERNAL "")
   set(MoGS_Tinyxml_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/include" CACHE INTERNAL "" )
   set(MoGS_Tinyxml_LIBRARY_DIRS "${CMAKE_BINARY_DIR}/${PROJECT_NAME}/lib/${CMAKE_BUILD_TYPE}" CACHE INTERNAL "" )
   set(MoGS_Tinyxml_LIBRARIES  -lMoGS_Tinyxml CACHE INTERNAL "")
-  set(MoGS_Tinyxml_GLOBAL_COMPILED "TRUE" CACHE INTERNAL "")
+  set(MoGS_Tinyxml_FLAGS "-DMoGS_Tinyxml_FOUND" CACHE INTERNAL "")
 else (MoGS_GLOBAL_COMPILED)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -msse2")
@@ -60,8 +60,6 @@ install( TARGETS "MoGS_Tinyxml" LIBRARY DESTINATION ${INSTALL_LIB_DIRS}  COMPONE
 
 ### Configure file
 configure_file(MoGS_TinyxmlConfig.cmake.in "${PROJECT_BINARY_DIR}/MoGS_TinyxmlConfig.cmake" @ONLY)
-
-
 
 install ( FILES "${PROJECT_BINARY_DIR}/MoGS_TinyxmlConfig.cmake"
       DESTINATION "${INSTALL_LIB_PATH}/MoGS_Tinyxml" COMPONENT dev ) 
