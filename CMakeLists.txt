@@ -33,6 +33,8 @@ else (MoGS_GLOBAL_COMPILED)
   set(PROJECT_CONTACT lengagne@gmail.com)
 endif (MoGS_GLOBAL_COMPILED)
 
+add_definitions(${MoGS_Tinyxml_FLAGS})
+
 set(LIBRARY_OUTPUT_PATH lib/${CMAKE_BUILD_TYPE})
 
 include_directories(	./include )
