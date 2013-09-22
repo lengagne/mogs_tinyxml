@@ -23,19 +23,6 @@
 #include <sstream>
 #include <boost/algorithm/string.hpp>
 
-// }
-// 
-// bool get_bool ( TiXmlHandle RNhandle, std::string name, std::string error_message)
-// {
-//      return string_to_bool(name, get_string(RNhandle,name,error_message));
-// }
-// 
-// int get_int ( TiXmlHandle RNhandle, std::string name, std::string error_message)
-// {
-//      return string_to_int(get_string(RNhandle,name,error_message));
-// }
-
-
 std::string double_to_string (const double x)
 {
 	std::string s;
@@ -47,8 +34,7 @@ std::string double_to_string (const double x)
 	return s;
 }
 
-double
-string_to_double (const std::string & s)
+double string_to_double (const std::string & s)
 {
 	std::istringstream i (s);
 	double x;
@@ -57,8 +43,7 @@ string_to_double (const std::string & s)
 	return x;
 }
 
-int
-string_to_int (const std::string & s)
+int string_to_int (const std::string & s)
 {
 	std::istringstream i (s);
 	int x;
@@ -67,8 +52,7 @@ string_to_int (const std::string & s)
 	return x;
 }
 
-float
-string_to_float (const std::string & s)
+float string_to_float (const std::string & s)
 {
 	std::istringstream i (s);
 	float x;
@@ -77,8 +61,7 @@ string_to_float (const std::string & s)
 	return x;
 }
 
-uint64_t
-string_to_uint64 (const std::string & s)
+uint64_t string_to_uint64 (const std::string & s)
 {
 	std::istringstream i (s);
 	uint64_t x;
@@ -87,8 +70,7 @@ string_to_uint64 (const std::string & s)
 	return x;
 }
 
-uint32_t
-string_to_uint32 (const std::string & s)
+uint32_t string_to_uint32 (const std::string & s)
 {
 	std::istringstream i (s);
 	uint32_t x;
@@ -97,8 +79,7 @@ string_to_uint32 (const std::string & s)
 	return x;
 }
 
-uint16_t
-string_to_uint16 (const std::string & s)
+uint16_t string_to_uint16 (const std::string & s)
 {
 	std::istringstream i (s);
 	uint16_t x;
@@ -107,8 +88,7 @@ string_to_uint16 (const std::string & s)
 	return x;
 }
 
-uint8_t
-string_to_uint8 (const std::string & s)
+uint8_t string_to_uint8 (const std::string & s)
 {
 	std::istringstream i (s);
 	uint8_t x;
@@ -117,8 +97,7 @@ string_to_uint8 (const std::string & s)
 	return x;
 }
 
-int64_t
-string_to_int64 (const std::string & s)
+int64_t string_to_int64 (const std::string & s)
 {
 	std::istringstream i (s);
 	int64_t x;
@@ -127,8 +106,7 @@ string_to_int64 (const std::string & s)
 	return x;
 }
 
-int32_t
-string_to_int32 (const std::string & s)
+int32_t string_to_int32 (const std::string & s)
 {
 	std::istringstream i (s);
 	int32_t x;
@@ -137,8 +115,7 @@ string_to_int32 (const std::string & s)
 	return x;
 }
 
-int16_t
-string_to_int16 (const std::string & s)
+int16_t string_to_int16 (const std::string & s)
 {
 	std::istringstream i (s);
 	int16_t x;
@@ -147,8 +124,7 @@ string_to_int16 (const std::string & s)
 	return x;
 }
 
-int8_t
-string_to_int8 (const std::string & s)
+int8_t string_to_int8 (const std::string & s)
 {
 	std::istringstream i (s);
 	int8_t x;
@@ -164,20 +140,16 @@ std::string char_to_string (const char *a)
 	return tmp;
 }
 
-bool
-string_to_bool (std::string name, std::string tmp)
+bool string_to_bool (std::string name, std::string tmp)
 {
 	boost::algorithm::trim (tmp);
-	if (tmp.compare ("true") == 0 || tmp.compare ("TRUE") == 0
-	    || tmp.compare ("yes") == 0 || tmp.compare ("YES") == 0)
+	if (tmp.compare ("true") == 0 || tmp.compare ("TRUE") == 0 || tmp.compare ("yes") == 0 || tmp.compare ("YES") == 0)
 		return true;
-	else if (tmp.compare ("false") == 0 || tmp.compare ("FALSE") == 0
-		 || tmp.compare ("no") == 0 || tmp.compare ("NO") == 0)
+	else if (tmp.compare ("false") == 0 || tmp.compare ("FALSE") == 0 || tmp.compare ("no") == 0 || tmp.compare ("NO") == 0)
 		return false;
 	else
-	  {
-		  std::cerr << " please select true or false for " << name <<
-			  " (you have selected:" << tmp << ")" << std::endl;
-		  exit (0);
-	  }
+	{
+		std::cerr << " please select true or false for " << name <<" (you have selected:" << tmp << ")" << std::endl;
+		exit (0);
+	}
 }
