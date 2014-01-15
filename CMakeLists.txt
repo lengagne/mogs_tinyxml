@@ -23,7 +23,7 @@ endforeach()
 if(MoGS_GLOBAL_COMPILED)
   set(MoGS_Tinyxml_FOUND "TRUE" CACHE INTERNAL "")
   set(MoGS_Tinyxml_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/include" CACHE INTERNAL "" )
-  set(MoGS_Tinyxml_LIBRARY_DIRS "${CMAKE_BINARY_DIR}/${PROJECT_NAME}/lib/${CMAKE_BUILD_TYPE}" CACHE INTERNAL "" )
+  set(MoGS_Tinyxml_LIBRARY_DIRS "${CMAKE_BINARY_DIR}/lib/${CMAKE_BUILD_TYPE}" CACHE INTERNAL "" )
   set(MoGS_Tinyxml_LIBRARIES  -lMoGS_Tinyxml CACHE INTERNAL "")
   set(MoGS_Tinyxml_FLAGS "-DMoGS_Tinyxml_FOUND" CACHE INTERNAL "")
 else (MoGS_GLOBAL_COMPILED)
@@ -35,7 +35,7 @@ endif (MoGS_GLOBAL_COMPILED)
 
 add_definitions(${MoGS_Tinyxml_FLAGS})
 
-set(LIBRARY_OUTPUT_PATH lib/${CMAKE_BUILD_TYPE})
+set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/lib/${CMAKE_BUILD_TYPE})
 
 include_directories(	./include )
 
