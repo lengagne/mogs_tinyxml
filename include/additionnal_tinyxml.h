@@ -17,7 +17,8 @@
 //      This program was developped in the following labs:
 //      2009-2011:  Joint robotics Laboratory - CNRS/AIST,Tsukuba, Japan.
 //      2011-2012:  Karlsruhe Institute fur Technologie, Karlsruhe, Germany
-//      from 2012: IUT de Beziers/ LIRMM, Beziers, France
+//      2012-2013: IUT de Beziers/ LIRMM, Beziers, France
+//	from 2013 : Université Blaise Pascal / axis : ISPR / theme MACCS
 
 #ifndef	__ADDITIONNAL_TINYXML__
 #define __ADDITIONNAL_TINYXML__
