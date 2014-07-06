@@ -2,6 +2,12 @@ cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
 cmake_policy(VERSION 2.6)
 
 project(MoGS_Tinyxml)
+set(PROJECT_CONTACT lengagne@gmail.com)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -msse2")
+set(CMAKE_VERBOSE_MAKEFILE OFF)
+
 
 set( CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} /lib /usr/lib /usr/local/lib )
 set( CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} /usr/include /usr/local/include )
@@ -19,19 +25,11 @@ foreach(p LIB INCLUDE)
 	endif()
 endforeach()
 
-# if the compilation is done for whole the project
-if(MoGS_GLOBAL_COMPILED)
-  set(MoGS_Tinyxml_FOUND "TRUE" CACHE INTERNAL "")
-  set(MoGS_Tinyxml_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/include" CACHE INTERNAL "" )
-  set(MoGS_Tinyxml_LIBRARY_DIRS "${CMAKE_BINARY_DIR}/lib/${CMAKE_BUILD_TYPE}" CACHE INTERNAL "" )
-  set(MoGS_Tinyxml_LIBRARIES  -lMoGS_Tinyxml CACHE INTERNAL "")
-  set(MoGS_Tinyxml_FLAGS "-DMoGS_Tinyxml_FOUND" CACHE INTERNAL "")
-else (MoGS_GLOBAL_COMPILED)
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -msse2")
-  set(CMAKE_VERBOSE_MAKEFILE OFF)
-  set(PROJECT_CONTACT lengagne@gmail.com)
-endif (MoGS_GLOBAL_COMPILED)
+set(MoGS_Tinyxml_FOUND "TRUE" CACHE INTERNAL "")
+set(MoGS_Tinyxml_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/include" CACHE INTERNAL "" )
+set(MoGS_Tinyxml_LIBRARY_DIRS "${CMAKE_BINARY_DIR}/lib/${CMAKE_BUILD_TYPE}" CACHE INTERNAL "" )
+set(MoGS_Tinyxml_LIBRARIES  -lMoGS_Tinyxml CACHE INTERNAL "")
+set(MoGS_Tinyxml_FLAGS "-DMoGS_Tinyxml_FOUND" CACHE INTERNAL "")
 
 add_definitions(${MoGS_Tinyxml_FLAGS})
 
